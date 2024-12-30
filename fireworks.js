@@ -15,6 +15,13 @@ let letterIndex = 0;
 const launchSound = new Audio('launch.mp3');
 const explosionSound = new Audio('explosion.mp3');
 
+window.addEventListener('DOMContentLoaded', () => {
+    const audio = document.querySelector('audio');
+    audio.play().catch(error => {
+      console.error("Autoplay gagal:", error);
+    });
+});
+
 function getRandomLetter() {
     const letter = letters.charAt(letterIndex);
     letterIndex = (letterIndex + 1) % letters.length;
